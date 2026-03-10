@@ -18,7 +18,7 @@ A modern desktop management tool for OpenClaw.
 
 ## Download
 
-Visit the [Releases](https://github.com/xiehuang01/QuickClaw/releases) page to download the latest version:
+Visit the [Releases](https://github.com/Xiehuang01/ClawDesk/releases) page to download the latest version:
 
 - **macOS**: Download the `.dmg` file
 - **Windows**: Download the `.exe` file

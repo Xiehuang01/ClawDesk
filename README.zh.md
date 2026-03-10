@@ -18,7 +18,7 @@
 
 ## 下载
 
-前往 [Releases](https://github.com/xiehuang01/QuickClaw/releases) 页面下载最新版本：
+前往 [Releases](https://github.com/Xiehuang01/ClawDesk/releases) 页面下载最新版本：
 
 - **macOS**: 下载 `.dmg` 文件
 - **Windows**: 下载 `.exe` 文件
