@@ -1,6 +1,6 @@
 export const translations = {
   en: {
-    appName: 'OneStepOpenClaw',
+    appName: 'ClawDesk',
     appSubtitle: 'OpenClaw Manager',
     
     // Navigation
@@ -110,7 +110,7 @@ export const translations = {
     system: 'System',
     application: 'Application',
     launchAtStartup: 'Launch at startup',
-    launchAtStartupHelp: 'Start OneStepOpenClaw when you log in',
+    launchAtStartupHelp: 'Start ClawDesk when you log in',
     autoStartGateway: 'Auto-start gateway',
     autoStartGatewayHelp: 'Automatically start gateway on app launch',
     language: 'Language',
@@ -124,7 +124,7 @@ export const translations = {
   },
   
   zh: {
-    appName: 'OneStepOpenClaw',
+    appName: 'ClawDesk',
     appSubtitle: 'OpenClaw 管理器',
     
     // Navigation
@@ -234,7 +234,7 @@ export const translations = {
     system: '跟随系统',
     application: '应用程序',
     launchAtStartup: '开机启动',
-    launchAtStartupHelp: '登录时启动 OneStepOpenClaw',
+    launchAtStartupHelp: '登录时启动 ClawDesk',
     autoStartGateway: '自动启动网关',
     autoStartGatewayHelp: '应用启动时自动启动网关',
     language: '语言',

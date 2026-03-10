@@ -1,5 +1,5 @@
 {
-  "name": "onestep-openclaw",
+  "name": "clawdesk",
   "version": "1.0.0",
   "description": "A GUI tool for managing OpenClaw",
   "main": "dist-electron/main.js",
@@ -34,8 +34,8 @@
     "vue-router": "^4.3.0"
   },
   "build": {
-    "appId": "com.onestep.openclaw",
-    "productName": "OneStepOpenClaw",
+    "appId": "com.clawdesk.app",
+    "productName": "ClawDesk",
     "directories": {
       "output": "release",
       "buildResources": "build"
@@ -75,7 +75,7 @@
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "OneStepOpenClaw"
+      "shortcutName": "ClawDesk"
     },
     "linux": {
       "target": ["AppImage", "deb"],

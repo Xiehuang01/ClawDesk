@@ -2,7 +2,7 @@
 
 # 快速打包脚本
 
-echo "🚀 OneStepOpenClaw 打包工具"
+echo "🚀 ClawDesk 打包工具"
 echo "================================"
 echo ""
 
