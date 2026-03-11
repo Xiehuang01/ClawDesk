@@ -9,63 +9,74 @@ on:
 jobs:
   build:
     strategy:
+      fail-fast: false
       matrix:
         os: [macos-latest, windows-latest]
-        
+
     runs-on: ${{ matrix.os }}
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          
+
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
-          version: 8
-          
+          version: 9
+
       - name: Install dependencies
-        run: pnpm install
-        
-      - name: Build application
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Build application (macOS)
+        if: matrix.os == 'macos-latest'
         run: pnpm build
-        
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build application (Windows)
+        if: matrix.os == 'windows-latest'
+        run: pnpm build
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Upload artifacts (macOS)
         if: matrix.os == 'macos-latest'
         uses: actions/upload-artifact@v4
         with:
           name: macos-build
           path: release/*.dmg
-          
+
       - name: Upload artifacts (Windows)
         if: matrix.os == 'windows-latest'
         uses: actions/upload-artifact@v4
         with:
           name: windows-build
           path: release/*.exe
-          
+
   release:
     needs: build
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
-    
+
     steps:
       - name: Download macOS artifacts
         uses: actions/download-artifact@v4
         with:
           name: macos-build
           path: ./artifacts/macos
-          
+
       - name: Download Windows artifacts
         uses: actions/download-artifact@v4
         with:
           name: windows-build
           path: ./artifacts/windows
-          
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
@@ -76,3 +87,4 @@ jobs:
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
