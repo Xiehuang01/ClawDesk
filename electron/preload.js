@@ -7,6 +7,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
   checkGitVersion: () => ipcRenderer.invoke('check-git-version'),
   
   // Installation
+  installNode: () => ipcRenderer.invoke('install-node'),
+  installGit: () => ipcRenderer.invoke('install-git'),
   installOpenClaw: () => ipcRenderer.invoke('install-openclaw'),
   onInstallOutput: (callback) => {
     ipcRenderer.on('install-output', (_, data) => callback(data))
