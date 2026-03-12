@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="build/icon.icns" alt="ClawDesk" width="128" height="128">
+  <img src="build/icon.png" alt="ClawDesk" width="128" height="128">
   
   # ClawDesk
   
