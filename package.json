@@ -38,6 +38,7 @@
   "build": {
     "appId": "com.clawdesk.app",
     "productName": "ClawDesk",
+    "publish": null,
     "directories": {
       "output": "release",
       "buildResources": "build"
