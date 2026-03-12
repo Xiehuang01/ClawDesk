@@ -52,7 +52,8 @@
       "target": ["dmg", "zip"],
       "icon": "build/icon.icns",
       "category": "public.app-category.developer-tools",
-      "artifactName": "${productName}-${version}-mac.${ext}"
+      "artifactName": "${productName}-${version}-mac-${arch}.${ext}",
+      "architectures": ["arm64", "x64"]
     },
     "dmg": {
       "contents": [
