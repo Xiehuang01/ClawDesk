@@ -1,10 +1,20 @@
-# ClawDesk
-
-<p align="center">
-  <a href="./README.md">English</a> | <a href="./README.zh.md">中文</a>
-</p>
-
-一个现代化的 OpenClaw 桌面管理工具。
+<div align="center">
+  <img src="build/icon.icns" alt="ClawDesk" width="128" height="128">
+  
+  # ClawDesk
+  
+  <p>
+    <a href="./README.md">English</a> | <a href="./README.zh.md">中文</a>
+  </p>
+  
+  <p>
+    <strong>一个现代化的 OpenClaw 桌面管理工具</strong>
+  </p>
+  
+  <p>
+    <em>通过直观的图形界面简化 OpenClaw 的部署、配置和网关管理</em>
+  </p>
+</div>
 
 ## 功能特性
 

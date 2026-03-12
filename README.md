@@ -1,10 +1,20 @@
-# ClawDesk
-
-<p align="center">
-  <a href="./README.md">English</a> | <a href="./README.zh.md">中文</a>
-</p>
-
-A modern desktop management tool for OpenClaw.
+<div align="center">
+  <img src="build/icon.icns" alt="ClawDesk" width="128" height="128">
+  
+  # ClawDesk
+  
+  <p>
+    <a href="./README.md">English</a> | <a href="./README.zh.md">中文</a>
+  </p>
+  
+  <p>
+    <strong>A modern desktop management tool for OpenClaw</strong>
+  </p>
+  
+  <p>
+    <em>Streamline your OpenClaw deployment with an intuitive GUI for installation, configuration, and gateway management</em>
+  </p>
+</div>
 
 ## Features
 
