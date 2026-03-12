@@ -66,6 +66,7 @@ export const translations = {
     
     // Configuration
     configurationTitle: 'Configuration',
+    basicSettings: 'Basic Settings',
     apiKey: 'API Key',
     apiKeyPlaceholder: 'sk-ant-...',
     apiKeyHelp: 'Your Anthropic API key',
@@ -190,6 +191,7 @@ export const translations = {
     
     // Configuration
     configurationTitle: '配置',
+    basicSettings: '基本设置',
     apiKey: 'API 密钥',
     apiKeyPlaceholder: 'sk-ant-...',
     apiKeyHelp: '你的 Anthropic API 密钥',

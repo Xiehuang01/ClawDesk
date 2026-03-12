@@ -146,10 +146,18 @@ interface Model {
   addedAt: number
 }
 
-const config = ref({
+interface Config {
+  ANTHROPIC_AUTH_TOKEN: string
+  ANTHROPIC_BASE_URL: string
+  ANTHROPIC_DEFAULT_MODEL: string
+  MODELS?: Model[]
+}
+
+const config = ref<Config>({
   ANTHROPIC_AUTH_TOKEN: '',
   ANTHROPIC_BASE_URL: 'https://api.anthropic.com',
-  ANTHROPIC_DEFAULT_MODEL: 'claude-3-opus-20240229'
+  ANTHROPIC_DEFAULT_MODEL: 'claude-3-opus-20240229',
+  MODELS: []
 })
 
 const models = ref<Model[]>([])
@@ -169,9 +177,20 @@ const loadConfiguration = async () => {
       config.value = {
         ANTHROPIC_AUTH_TOKEN: result.config.ANTHROPIC_AUTH_TOKEN || '',
         ANTHROPIC_BASE_URL: result.config.ANTHROPIC_BASE_URL || 'https://api.anthropic.com',
-        ANTHROPIC_DEFAULT_MODEL: result.config.ANTHROPIC_DEFAULT_MODEL || 'claude-3-opus-20240229'
+        ANTHROPIC_DEFAULT_MODEL: result.config.ANTHROPIC_DEFAULT_MODEL || 'claude-3-opus-20240229',
+        MODELS: []
       }
-      models.value = result.config.MODELS || []
+      
+      // Parse MODELS from JSON string
+      if (result.config.MODELS) {
+        try {
+          models.value = typeof result.config.MODELS === 'string' 
+            ? JSON.parse(result.config.MODELS) 
+            : result.config.MODELS
+        } catch (e) {
+          models.value = []
+        }
+      }
     }
   } catch (error) {
     console.error('Failed to load config:', error)
@@ -216,8 +235,10 @@ const setDefaultModel = (modelName: string) => {
 const saveModels = async () => {
   try {
     const configToSave = {
-      ...config.value,
-      MODELS: models.value
+      ANTHROPIC_AUTH_TOKEN: config.value.ANTHROPIC_AUTH_TOKEN,
+      ANTHROPIC_BASE_URL: config.value.ANTHROPIC_BASE_URL,
+      ANTHROPIC_DEFAULT_MODEL: config.value.ANTHROPIC_DEFAULT_MODEL,
+      MODELS: JSON.stringify(models.value)
     }
     const result = await window.electronAPI.saveConfig(configToSave)
     if (result.success) {
@@ -238,8 +259,10 @@ const saveConfiguration = async () => {
 
   try {
     const configToSave = {
-      ...config.value,
-      MODELS: models.value
+      ANTHROPIC_AUTH_TOKEN: config.value.ANTHROPIC_AUTH_TOKEN,
+      ANTHROPIC_BASE_URL: config.value.ANTHROPIC_BASE_URL,
+      ANTHROPIC_DEFAULT_MODEL: config.value.ANTHROPIC_DEFAULT_MODEL,
+      MODELS: JSON.stringify(models.value)
     }
     const result = await window.electronAPI.saveConfig(configToSave)
     if (result.success) {
